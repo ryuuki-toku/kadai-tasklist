@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
      before_action :require_user_logged_in
      before_action :correct_user, only: [:destroy]
+     before_action :set_task, only: [:show, :edit, :update, :destroy]
     
     def index
         @tasks = Task.all
@@ -11,6 +12,7 @@ class TasksController < ApplicationController
   end
 
   def show
+     
   end
 
   def new
@@ -30,6 +32,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+      
   end
 
   def update
@@ -44,6 +47,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+        
       @task.destroy
       
       flash[:success] = 'Task を削除しました。'
@@ -57,7 +61,7 @@ class TasksController < ApplicationController
   end
  
  def task_params
-     params.require(:task).permit(:content)
+     params.require(:task).permit(:content, :status)
  end
  
  def correct_user
