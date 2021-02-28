@@ -6,11 +6,8 @@ class TasksController < ApplicationController
     
     def index
         @tasks = Task.all
-         if logged_in?
-      @task = current_user.tasks.build  
       
     end
-  end
 
   def show
      
